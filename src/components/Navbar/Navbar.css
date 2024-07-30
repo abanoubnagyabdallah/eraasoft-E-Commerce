@@ -1,0 +1,18 @@
+.nav{
+    background-color: rgb(165, 167, 167);
+}
+
+.me-auto {
+    display: flex;
+    gap: 10px;
+}
+
+.me-auto .nav_link{
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+}
+
+.nav_link.active{
+    border-bottom: 1px solid black;
+}
