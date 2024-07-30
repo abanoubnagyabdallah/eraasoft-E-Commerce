@@ -5,17 +5,19 @@ import ProductsFilter from "../components/ProductsFilter/ProductsFilter";
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
+  const [filterQuery, setFilterQuery] = useState("");
+
   useEffect(() => {
     function fetchProducts() {
-      fetch("https://fakestoreapi.com/products")
+      fetch(`https://fakestoreapi.com/products?${filterQuery}`)
         .then((res) => res.json())
         .then((data) => setProducts(data));
     }
     fetchProducts();
-  }, []);
+  }, [filterQuery]);
   return (
     <Container className="my-5">
-      <ProductsFilter/>
+      <ProductsFilter setFilterQuery={setFilterQuery} />
       <Row className="my-5">
         {products.map((product) => {
           return (
